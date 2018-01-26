@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/var/www/Example-Messstelle/csv/readcsv2mysql /home/pi/data/Louise-Schroeder-Platz_Elektro /var/www/Example-Messstelle/csv/elektro.cfg

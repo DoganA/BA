@@ -1,0 +1,76 @@
+/************* Standard Formates *******/
+body {
+ font-family:verdana, sans-serif, Arial, New Times Roman;
+ background:lightgoldenrodyellow;
+ text-align: left;
+}
+table{
+   text-align:center;
+   margin: 0 auto;
+}
+/************* Outer *******/
+div#outer {
+   width: auto;
+   margin: 0 auto;
+   height: auto;
+   -moz-box-shadow: 5px 5px 5px #888;
+   -webkit-box-shadow: 5px 5px 5px #888;
+   box-shadow: 5px 5px 5px #888;
+}
+
+/************* Kopfbereich *******/
+div#head {
+   background:lightsteelblue;
+   height:120px;
+   width: auto;
+}
+/************* Navigation *******/
+div#navi {
+   background:silver;
+   width:150px;
+   height:auto /*600px*/;
+   min-height:600px;
+ 
+   float:left;
+   text-align: left;
+}
+
+div#navi a {
+	display:block;
+	margin-top:10px;
+	margin-left:5px;
+	margin-right:5px;
+	background:silver;
+	color:black;
+	text-decoration:none;
+	text-align:left;
+}
+a:hover{
+   background-color: #0efdf4;
+}
+div#navi a:hover {
+	display:block;
+	background:green;
+	color:yellow;
+	text-align:center;width: auto;
+}
+
+/************* Content *******/
+div#content {
+	background:papayawhip;
+	text-align: left;
+	float:left;
+}
+fieldset {
+	width: auto;
+	float: left;
+}
+
+div#chart{
+   width: auto 100%;
+   float: left;
+}
+/************* Fuﬂbereich *******/
+form p{
+   margin: 2px;
+}

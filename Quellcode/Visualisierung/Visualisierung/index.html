@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <!-- Skript Einbindung, um Hightchart benutzen zu können -->
+     <script src="js/jquery-1.10.2.js"></script>
+     <script src="js/jquery-ui.js"></script>
+     <script src="js/highcharts.js"></script>
+     <link rel="stylesheet" href="js/jquery-ui.css">
+     <link rel="stylesheet" href="resources/demos/style.css">
+     <script src="js/page.js"></script>
+     <title>Monitoring von Energieverbrauchsdaten</title>
+      <meta name="author" content="Dogan Alkan" />
+   </head>
+   <link type="text/css" rel="stylesheet" href="./css/style.css" />   <!-- Link zur CSS Datei, für den Layout -->
+
+   <body>
+<!-- Site -->
+      <div id="outer">
+        <!-- Kopfbereich -->
+         <div id="head"><h1>Monitoring von Energieverbrauchsdaten</h1></div>
+
+	  <!-- Navigation -->
+	  <div id="navi">
+	  </div>         <!-- Ende der Navigation -->
+
+      <!-- Inhalt und Info -->
+      <div id="content">
+         <!--<form method="post">-->
+         <fieldset> <!-- Zeit Auswählen -->
+            <legend>Art der Verbrauchsdatendarstellung:</legend>
+            <input type="radio"
+                   id="zeitraum"
+                   name="art"
+                   value="VerbrauchsZeitraum"
+                   class="abfrageRadio">
+            <label for="mc">Für einen bestimmten Zeitraum</label><br>
+
+            <input type="radio"
+                   id="aktuell"
+                   name="art"
+                   value="aktuellerVerbrauch"
+                   class="abfrageRadio">
+            <label for="vi"> aktuellen Verbrauch Anzeigen</label><br>
+         </fieldset>
+
+         <fieldset>  <!-- Kanal Auswählen -->
+            <legend>Verbrauchskanal auswählen:</legend>
+
+            <input name="zaeler" type="checkbox" value="A" id="ch1" />
+            <label for="KanalA">Kanal 1</label><br />
+
+            <input name="zaeler" type="checkbox" value="B" id="ch1" />
+            <label for="KanalB">Kanal 2</label><br />
+
+            <input name="zaeler" type="checkbox" value="C" id="ch1" />
+            <label for="KanalC">Kanal 3</label><br />
+
+            <input name="zaeler" type="checkbox" value="D" id="ch1" />
+            <label for="KanalD">Kanal 4</label><br />
+
+         </fieldset>
+
+         <fieldset>
+            <legend>Zeitraum</legend>
+
+            <label for="beginDatum">Begin</label><br />
+            <input type="text" name="zeitraumBegin" id="beginDatum" />
+			</br>
+            <label for="lastname">Ende</label><br />
+            <input type="text" name="zeitraumEnde" id="endDatum" />
+         </fieldset>
+
+               <p>
+            <input type="submit" name="action" onclick='drawChart()' onclick='drawChart()' value="Zeichnen" />
+            <input type="reset" value="Reset" />
+            <input type="hidden" name="session" value="A398DF991" />
+         </p>
+         <div id="chart"></div>
+      </div>
+      </div>
+   </body>
+</html>

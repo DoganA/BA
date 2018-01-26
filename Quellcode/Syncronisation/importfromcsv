@@ -1,0 +1,57 @@
+#!/bin/bash
+##
+# Erstellt von csv Dateien, SQL abfragen.
+#
+# Quelle: Komillitonme (Rene Galow)
+##
+
+FILE=$1
+STRING=""
+OIFS=$IFS
+
+# Config File einlesen
+. $2
+#echo "VALUES M1 = $m1"
+IFS=';';
+
+if [ -e $FILE ] ;then
+  while read a 
+  do
+    set -- $a
+    DATUM=$1
+    shift
+		i=1
+		METER="m$i"
+		while [ ! -z ${!METER} ]
+		do 
+			if [ "${!METER}" != "-1" ]; then
+#			echo "Lese Meter $METER"
+	        	VAL=$( echo $1 | tr ',' '.')
+				VAL=$(echo ${VAL} | sed 's/\r//')
+      	  	VAL=$(echo ${VAL} |sed 's/[nN]oValue/0/') 
+       		#echo $i" = "$VAL          
+	        	STRING=$STRING"(NULL,"${!METER}","$VAL","\'$DATUM\'"),"
+#				echo $STRING
+			fi
+			i=$(( $i + 1))
+			METER="m$i"
+			shift
+		done
+   done < $FILE 
+fi
+
+IFS=$OIFS
+#echo $STRING
+
+# Das letzte Komma durch Simicolon erstezen
+STRING=$(echo "$STRING" | sed "s/,*$/;/")
+
+STRING="insert into value (ID, MeterID, Value, TimeStamp) \
+  value $STRING"
+
+#echo $STRING
+
+  mysql --user=energyAdmin --password=smartmeter --host=localhost energymeterLSP \
+  -e "$STRING"
+echo "Datei "$FILE" eingelesen."
+
